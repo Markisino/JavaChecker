@@ -9,4 +9,15 @@ def get_version():
     return outputstr
 
 
-print(get_version())
+# Check if Java is installed
+def check_installed():
+
+    try:
+        get_version()
+
+    except:
+        return False
+
+    return True
+
+
