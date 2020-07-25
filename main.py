@@ -1,7 +1,6 @@
 import subprocess
 import smtplib
-import ssl
-
+import os
 
 # Get Java version and return string
 def get_version():
@@ -11,9 +10,8 @@ def get_version():
 
     return out_str
 
-
 # Check if Java is installed
-def check_installed():
+def is_installed():
     try:
         get_version()
 
@@ -22,6 +20,9 @@ def check_installed():
 
     return True
 
+# Install Java with version as parameter
+def install_java(version):
+    os.system("sudo -S apt-get install openjdk-" + str(version) + "-jre")
 
 # Send email with status message
 def send_status_email(email_receiving, message):
